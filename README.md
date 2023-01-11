@@ -13,9 +13,17 @@ API documentation is available [here](https://fern-api.stoplight.io/docs/hathora
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](TODO)
 
 ```typescript
-import { TODO } from "TODO";
+import { HathoraApi, HathoraApiClient } from '@fern-api/hathora';
+import { Environment } from '@fern-api/hathora/types/environments';
 
-const TODO
+const client = new HathoraApiClient({
+  environment: Environment.Production,
+  token: 'MY_TOKEN',
+});
+
+const response = await client.app.logs('my-app');
+
+console.log('Received response from Hathora!', response);
 ```
 
 ## Beta status
