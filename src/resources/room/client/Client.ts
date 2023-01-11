@@ -10,7 +10,7 @@ import * as serializers from "../../../serialization";
 
 export declare namespace Client {
   interface Options {
-    environment?: environments.Environment | string;
+    environment?: environments.HathoraApiEnvironment | string;
     token?: core.Supplier<core.BearerToken>;
   }
 }
@@ -25,7 +25,7 @@ export class Client {
     const _queryParams = new URLSearchParams();
     _queryParams.append("region", request.region);
     const _response = await core.fetcher({
-      url: urlJoin(this.options.environment ?? environments.Environment.Production, `/rooms/create/${appId}`),
+      url: urlJoin(this.options.environment ?? environments.HathoraApiEnvironment.Production, `/rooms/create/${appId}`),
       method: "POST",
       headers: {
         Authorization: core.BearerToken.toAuthorizationHeader(await core.Supplier.get(this.options.token)),
@@ -48,7 +48,7 @@ export class Client {
   public async connect(appId: HathoraApi.AppId, roomId: HathoraApi.RoomId): Promise<HathoraApi.room.connect.Response> {
     const _response = await core.fetcher({
       url: urlJoin(
-        this.options.environment ?? environments.Environment.Production,
+        this.options.environment ?? environments.HathoraApiEnvironment.Production,
         `/rooms/connect/${appId}/${roomId}`
       ),
       method: "POST",
@@ -72,7 +72,7 @@ export class Client {
   public async suspend(appId: HathoraApi.AppId, roomId: HathoraApi.RoomId): Promise<HathoraApi.room.suspend.Response> {
     const _response = await core.fetcher({
       url: urlJoin(
-        this.options.environment ?? environments.Environment.Production,
+        this.options.environment ?? environments.HathoraApiEnvironment.Production,
         `/rooms/suspense/${appId}/${roomId}`
       ),
       method: "DELETE",
@@ -96,7 +96,7 @@ export class Client {
   public async destroy(appId: HathoraApi.AppId, roomId: HathoraApi.RoomId): Promise<HathoraApi.room.destroy.Response> {
     const _response = await core.fetcher({
       url: urlJoin(
-        this.options.environment ?? environments.Environment.Production,
+        this.options.environment ?? environments.HathoraApiEnvironment.Production,
         `/rooms/destory/${appId}/${roomId}`
       ),
       method: "DELETE",

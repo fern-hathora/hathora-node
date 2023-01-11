@@ -10,7 +10,7 @@ import * as serializers from "../../../serialization";
 
 export declare namespace Client {
   interface Options {
-    environment?: environments.Environment | string;
+    environment?: environments.HathoraApiEnvironment | string;
     token?: core.Supplier<core.BearerToken>;
   }
 }
@@ -20,7 +20,7 @@ export class Client {
 
   public async get(appName: HathoraApi.AppName): Promise<HathoraApi.app.get.Response> {
     const _response = await core.fetcher({
-      url: urlJoin(this.options.environment ?? environments.Environment.Production, `/app/${appName}/`),
+      url: urlJoin(this.options.environment ?? environments.HathoraApiEnvironment.Production, `/app/${appName}/`),
       method: "GET",
       headers: {
         Authorization: core.BearerToken.toAuthorizationHeader(await core.Supplier.get(this.options.token)),
@@ -41,7 +41,7 @@ export class Client {
 
   public async logs(appName: HathoraApi.AppName): Promise<HathoraApi.app.logs.Response> {
     const _response = await core.fetcher({
-      url: urlJoin(this.options.environment ?? environments.Environment.Production, `/app/${appName}/logs`),
+      url: urlJoin(this.options.environment ?? environments.HathoraApiEnvironment.Production, `/app/${appName}/logs`),
       method: "GET",
       headers: {
         Authorization: core.BearerToken.toAuthorizationHeader(await core.Supplier.get(this.options.token)),
@@ -70,7 +70,7 @@ export class Client {
     }
 
     const _response = await core.fetcher({
-      url: urlJoin(this.options.environment ?? environments.Environment.Production, `/app/${appName}/delete`),
+      url: urlJoin(this.options.environment ?? environments.HathoraApiEnvironment.Production, `/app/${appName}/delete`),
       method: "DELETE",
       headers: {
         Authorization: core.BearerToken.toAuthorizationHeader(await core.Supplier.get(this.options.token)),

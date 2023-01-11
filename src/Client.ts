@@ -9,7 +9,7 @@ import { Client as RoomClient } from "./resources/room/client/Client";
 
 export declare namespace HathoraApiClient {
   interface Options {
-    environment?: environments.Environment | string;
+    environment?: environments.HathoraApiEnvironment | string;
     token?: core.Supplier<core.BearerToken>;
   }
 }
