@@ -1,6 +1,6 @@
 {
     "name": "@fern-api/hathora",
-    "version": "0.0.12",
+    "version": "0.0.14",
     "repository": "https://github.com/fern-hathora/hathora-node",
     "files": [
         "dist",

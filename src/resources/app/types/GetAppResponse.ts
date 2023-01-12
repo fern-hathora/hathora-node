@@ -4,6 +4,24 @@
 
 import { HathoraApi } from "@fern-api/hathora";
 
+/**
+ * @example
+ *     {
+ *         appId: "your-app-id",
+ *         deploymentId: "your-deployment-id",
+ *         regionalContainerTags: [],
+ *         containerPort: 100,
+ *         transportType: HathoraApi.TransportType.Tcp,
+ *         roomsPerProcess: 10,
+ *         requestedCpu: 32,
+ *         requestedMemoryMb: 4096,
+ *         deployedBy: "username",
+ *         deployStartedAt: new Date("2023-01-11T23:14:02+00:00"),
+ *         deployFinishedAt: new Date("2023-01-11T23:14:42+00:00"),
+ *         status: HathoraApi.DeploymentStatus.Completed,
+ *         secret: "app-secret"
+ *     }
+ */
 export interface GetAppResponse extends HathoraApi.Deployment {
   secret: string;
 }
