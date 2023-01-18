@@ -10,18 +10,18 @@ API documentation is available [here](https://fern-api.stoplight.io/docs/hathora
 
 ## Usage
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](TODO)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/edit/typescript-example-using-sdk-built-with-fern-wgxx3z?file=app.ts&view=editor)
 
 ```typescript
-import { HathoraApi, HathoraApiClient } from '@fern-api/hathora';
-import { Environment } from '@fern-api/hathora/types/environments';
+import { HathoraApiClient, HathoraApi } from '@fern-api/hathora';
 
 const client = new HathoraApiClient({
-  environment: Environment.Production,
   token: 'MY_TOKEN',
 });
 
-const response = await client.app.logs('my-app');
+const response = await client.room.create('app-id', {
+  region: HathoraApi.Region.UsEast1,
+});
 
 console.log('Received response from Hathora!', response);
 ```
