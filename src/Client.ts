@@ -4,28 +4,28 @@
 
 import * as environments from "./environments";
 import * as core from "./core";
-import { Client as AppClient } from "./resources/app/client/Client";
-import { Client as RoomClient } from "./resources/room/client/Client";
+import { Client as AppClient } from "./api/resources/app/client/Client";
+import { Client as RoomClient } from "./api/resources/room/client/Client";
 
 export declare namespace HathoraApiClient {
-  interface Options {
-    environment?: environments.HathoraApiEnvironment | string;
-    token?: core.Supplier<core.BearerToken>;
-  }
+    interface Options {
+        environment?: environments.HathoraApiEnvironment | string;
+        token?: core.Supplier<core.BearerToken>;
+    }
 }
 
 export class HathoraApiClient {
-  constructor(private readonly options: HathoraApiClient.Options) {}
+    constructor(private readonly options: HathoraApiClient.Options) {}
 
-  #app: AppClient | undefined;
+    #app: AppClient | undefined;
 
-  public get app(): AppClient {
-    return (this.#app ??= new AppClient(this.options));
-  }
+    public get app(): AppClient {
+        return (this.#app ??= new AppClient(this.options));
+    }
 
-  #room: RoomClient | undefined;
+    #room: RoomClient | undefined;
 
-  public get room(): RoomClient {
-    return (this.#room ??= new RoomClient(this.options));
-  }
+    public get room(): RoomClient {
+        return (this.#room ??= new RoomClient(this.options));
+    }
 }

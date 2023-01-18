@@ -3,7 +3,7 @@
  */
 
 export const HathoraApiEnvironment = {
-  Production: "https://cloud.hathora.dev/v1/",
+    Production: "https://cloud.hathora.dev/v1/",
 } as const;
 
 export type HathoraApiEnvironment = typeof HathoraApiEnvironment.Production;
